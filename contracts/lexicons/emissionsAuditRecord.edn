@@ -1,0 +1,22 @@
+{"lexicon" 1
+ "id" "com.etzhayyim.sarutahiko.emissionsAuditRecord"
+ "description" "Emissions audit record (G8 cross-cutting). Euro 7 + \u65E5\u672C\u30DD\u30B9\u30C8\u65B0\u9577\u671F + Bharat Stage VI compliance. R0-R1 tailpipe permitted (G7 transition); R2+ zero tailpipe. Per ADR-2605252500 G8."
+ "defs" {"main" {"type" "record"
+ "record" {"type" "object"
+ "properties" {"chassisId" {"type" "string"}
+ "euro7Findings" {"type" "unknown"}
+ "japanPostNLTFindings" {"type" "unknown"}
+ "bharatViFindings" {"type" "unknown"}
+ "overallAccept" {"type" "boolean"}
+ "regulatoryBasis" {"type" "array"
+ "items" {"type" "string"
+ "knownValues" ["EU Regulation (EU) 2024/1257 \u2014 Euro 7"
+ "\u65E5\u672C \u30DD\u30B9\u30C8\u65B0\u9577\u671F\u6392\u51FA\u30AC\u30B9\u898F\u5236"
+ "Bharat Stage VI"]}
+ "minItems" 1}
+ "phaseGate" {"type" "string"}
+ "recordedAt" {"type" "string"
+ "format" "datetime"}}
+ "required" ["chassisId"
+ "overallAccept"
+ "regulatoryBasis"]}}}}

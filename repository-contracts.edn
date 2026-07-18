@@ -1,0 +1,1 @@
+{:canonical/format :edn :wire/root "wire" :forbidden/extensions #{"go" "sh"}}

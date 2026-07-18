@@ -1,4 +1,4 @@
-# 20-actors/sarutahiko — CLAUDE.md
+# com-etzhayyim-sarutahiko — CLAUDE.md
 
 ## Identity
 
@@ -157,43 +157,16 @@ Terminal `vehicleManufactureRecord` (kotoba-datomic-anchored aggregate) emitted 
 4. Benchtop ≤2 t cargo van prototype demonstrated
 5. Cell source replaces RuntimeError with LangGraph stub bodies
 
-## Testing (R0)
+## Testing
 
-Smoke test: verify all 9 cells import + `.solve()` raises:
-
-```bash
-cd 20-actors/sarutahiko
-python3 -c "
-from cells.frame_fabrication import FrameFabricationCell
-from cells.powertrain_assembly import PowertrainAssemblyCell
-from cells.cab_body_forming import CabBodyFormingCell
-from cells.final_marriage import FinalMarriageCell
-from cells.paint_finishing import PaintFinishingCell
-from cells.electrical_integration import ElectricalIntegrationCell
-from cells.quality_road_test import QualityRoadTestCell
-from cells.emissions_audit import EmissionsAuditCell
-from cells.vin_attestation_binder import VinAttestationBinderCell
-"
-```
-
-All should pass import; `.solve()` raises `RuntimeError("sarutahiko R0 scaffold...")`.
-
-**State-machine tests** (stdlib-only, langgraph-free; the R0 `.solve()` gate is
-**preserved** — never calls `solve()`, so it does not bypass Council ADR-2605252515):
-
-```bash
-cd 20-actors/sarutahiko
-python3 cells/test_state_machines.py   # 3 tests — all 9 cell state machines INIT→…→100% + G7 powertrain fuel-guard (accepts clean / rejects pure-fossil)
-```
-
-Coverage: all 9 `state_machine.py` at 100%. The `cell.py` Pregel wrappers stay
-import-smoke-only (this env's langgraph is broken by a pydantic/pydantic-core
-mismatch); they are R1-activated via ADR-2605252515.
+The standalone repository uses the canonical CLJC implementations and EDN
+contracts. Run the complete suite with `bb run_tests.clj`.
 
 ## Related Files
 
-- `/20-actors/sarutahiko/manifest.jsonld`
+- `manifest.edn` (canonical actor manifest)
+- `wire/manifest.jsonld` (external JSON-LD boundary)
 - `/90-docs/adr/2605252500-sarutahiko-heavy-truck-manufacturing-r0.md`
-- `/20-actors/wadachi/README.md` — Operator-side counterpart
-- `/20-actors/kanayama/README.md` — Upstream Al/steel/Cu supply + EoL loop
+- `/orgs/etzhayyim/com-etzhayyim-wadachi/README.md` — Operator-side counterpart
+- `com-etzhayyim-kanayama` — Upstream Al/steel/Cu supply + EoL loop
 - `/CLAUDE.md` — Religious-corp status table row 52

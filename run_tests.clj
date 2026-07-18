@@ -1,0 +1,4 @@
+(require '[clojure.test :as t])
+(def n '[sarutahiko.cells.cab-body-forming.test-state-machine sarutahiko.cells.electrical-integration.test-state-machine sarutahiko.cells.emissions-audit.test-state-machine sarutahiko.cells.final-marriage.test-state-machine sarutahiko.cells.frame-fabrication.test-state-machine sarutahiko.cells.paint-finishing.test-state-machine sarutahiko.cells.powertrain-assembly.test-state-machine sarutahiko.cells.quality-road-test.test-state-machine sarutahiko.cells.vin-attestation-binder.test-state-machine sarutahiko.methods.test-agent sarutahiko.methods.test-charter-gates sarutahiko.murakumo-test sarutahiko.repository-contract-test])
+(doseq [x n] (require x))
+(let [r (apply t/run-tests n)] (println "==>" (select-keys r [:test :pass :fail :error])) (when (pos? (+ (:fail r) (:error r))) (System/exit 1)))

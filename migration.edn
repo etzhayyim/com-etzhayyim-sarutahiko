@@ -1,0 +1,1 @@
+{:migration/id :sarutahiko/standalone-cutover :status :complete :source/root "20-actors/sarutahiko" :target/repository "orgs/etzhayyim/com-etzhayyim-sarutahiko" :root/cleanup ["20-actors/sarutahiko" "00-contracts/lexicons/com/etzhayyim/sarutahiko"]}
