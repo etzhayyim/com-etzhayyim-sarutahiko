@@ -81,7 +81,11 @@
     "com.etzhayyim.sarutahiko.electricalAttestation",
     "com.etzhayyim.sarutahiko.roadTestRecord",
     "com.etzhayyim.sarutahiko.emissionsAuditRecord",
-    "com.etzhayyim.sarutahiko.silenVehicleReview"
+    "com.etzhayyim.sarutahiko.silenVehicleReview",
+    "com.etzhayyim.sarutahiko.productionProgress",
+    "com.etzhayyim.sarutahiko.quality",
+    "com.etzhayyim.sarutahiko.settlement",
+    "com.etzhayyim.sarutahiko.vehicleOrder"
   ],
   "constitutionalGates": {
     "description": "14 immutable gates per ADR-2605252500. Changes require Council Lv6+ supermajority + new ADR.",
